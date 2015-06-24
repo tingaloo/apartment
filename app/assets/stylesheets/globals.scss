@@ -1,0 +1,14 @@
+p,h1,h2,a,ul,li {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  width:100%;
+  >main {
+    width: 100%;
+    padding: 0 0;
+    >.row .features{
+      width:100%;
+    }
+  }
+}

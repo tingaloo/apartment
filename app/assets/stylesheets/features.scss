@@ -1,0 +1,23 @@
+.features {
+  margin-top:10px;
+  max-width:100%;
+  padding: 0 5%;
+  .feature-sides{
+    margin-top: 20px;
+  }
+
+  > .feature-main{
+    > .feature-main-text {
+      position: absolute;
+      background-color: rgba(224,90,43,.8);
+      top: 0;
+      left: 0;
+      width: 40%;
+      height:80%;
+      >h1 {
+        font-weight: 300;
+        color: white;
+      }
+    }
+  }
+}

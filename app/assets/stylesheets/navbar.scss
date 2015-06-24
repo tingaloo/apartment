@@ -1,0 +1,72 @@
+.top-bar {
+  background: #E05A2B !important;
+  > .title-area {
+    // height:100px;
+    display:none;
+    > li.name {
+      display:block;
+      background-color: white;
+      height: 100px;
+      > .logo-small {
+
+
+
+      }
+    }
+
+    > .menu-icon > a{
+      color:black;
+    }
+  }
+  > .top-bar-section {
+
+    > ul > li >a{
+      background: #E05A2B !important;
+      color:white;
+      font-family: ubuntu;
+      font-weight: 300;
+
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* line 188, /Users/tingaloo/.rvm/gems/ruby-2.2.1/gems/foundation-rails-5.5.2.1/vendor/assets/stylesheets/foundation/components/_top-bar.scss */
+  .logo-large {
+    display:none;
+  }
+
+  .top-bar {
+    height: 100px;
+    > .title-area {
+      // height:100px;
+      display:block;
+      height:100px;
+      > .name > .logo-small > img {
+
+        width:20%;
+        margin-left: 35%;
+        // padding: 0% 30%;
+        margin-top: 4%;
+      }
+    }
+
+    > .top-bar-section {
+      > ul > li {
+        width:40%;
+        float:right;
+      }
+    }
+  }
+}
+
+
+.logo-large > img{
+    width:30%;
+    padding: 3% 3%;
+}
+
+
+.logo-small {
+
+}
