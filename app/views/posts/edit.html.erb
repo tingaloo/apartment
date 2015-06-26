@@ -4,8 +4,12 @@
 
     <%= simple_form_for :post, multipart: true, url: post_path(@post), method: :patch do |f| %>
       <%= f.input :title, label: 'post title' %>
-      <%= f.text_area :content %>
+      <%= f.text_area :content, :cols => "30", :rows => "20",
+      id: "some-textarea", class: "wysihtml5",
+      placeholder: "WYSIWYG HTML editor, allows embedding of images to preview post content. "  %>
       <%= f.button :submit, :class => "button" %>
     <% end %>
+
+
   </div>
 </div>

@@ -91,6 +91,8 @@ GEM
     foundation-rails (5.5.2.1)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
+    foundation-wysihtml5-rails (1.0.0)
+      railties (>= 3.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     guard (2.12.6)
@@ -278,6 +280,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   foundation-rails
+  foundation-wysihtml5-rails
   guard-bundler
   guard-rails
   guard-rspec

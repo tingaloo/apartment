@@ -34,7 +34,7 @@
   <% @posts.each do |post| %>
     <div class="row post">
       <h1><%= post.title %></h1>
-      <p><%= post.content %></p>
+      <p><%= post.content.html_safe %></p>
       <p>Written by <%= User.find(post.user_id).name %></p>
       <%= link_to "Edit post", edit_post_path(post) %>
     </div>
@@ -46,11 +46,13 @@
   <div class="large-12 large-centered medium-12 small-12 column">
     <%= simple_form_for :post, multipart: true, url: posts_path do |f| %>
       <%= f.input :title, placeholder: "Post Title Please" %>
-      <%= f.text_area :content, :cols => "30", :rows => "10",
-      placeholder: "This can either be a live-markdown preview box using Javascript to preview posts in real-time. This can also be an attachment for markdown files. I assume that there is a post-generator like Jekyll."  %>
+      <%= f.text_area :content, :cols => "30", :rows => "20",
+      id: "some-textarea", class: "wysihtml5",
+      placeholder: "WYSIWYG HTML editor, allows embedding of images to preview post content."  %>
       <%= f.submit 'Submit', class: "button" %>
     <% end %>
   </div>
 </div>
+
 
 

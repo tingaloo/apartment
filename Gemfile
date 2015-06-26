@@ -15,6 +15,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'pg'
 gem 'simple_form'
+gem 'foundation-wysihtml5-rails'
 
 group :development do
   gem 'better_errors'

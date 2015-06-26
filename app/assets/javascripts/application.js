@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require foundation-wysihtml5
 //= require_tree .
 $(function() {
   $(document).foundation();
