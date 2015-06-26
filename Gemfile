@@ -16,6 +16,7 @@ gem 'foundation-rails'
 gem 'pg'
 gem 'simple_form'
 gem 'foundation-wysihtml5-rails'
+gem "paperclip", "~> 4.2"
 
 group :development do
   gem 'better_errors'

@@ -30,15 +30,32 @@
       <li>All Categories</li>
     </ul>
   </div>
-  <div class="large-10 medium-9 small-12 column">
+  <div class="large-8 medium-7 small-12 column post-content">
   <% @posts.each do |post| %>
     <div class="row post">
       <h1><%= post.title %></h1>
       <p><%= post.content.html_safe %></p>
-      <p>Written by <%= User.find(post.user_id).name %></p>
-      <%= link_to "Edit post", edit_post_path(post) %>
+
+      <%= link_to "Edit", edit_post_path(post) %>
+      <%= link_to "Remove", post_path(post), :confirm => 'Works!', :method => :delete %>
+
+      <div class="row author">
+        <div class="large-4 medium-4 small-12 column">
+        <%= image_tag User.find(post.user_id).avatar.url(:thumb),
+          class: 'avatar' %>
+        </div>
+        <div class="large-8 medium-8 small-12 column">
+          <%= User.find(post.user_id).name %><br>
+          <%= User.find(post.user_id).description %>
+        </div>
+
+      </div>
     </div>
   <% end %>
+  </div>
+
+  <div class="large-2 medium-2 small-0 column side-ad">
+    Place Ad here
   </div>
 </div>
 
