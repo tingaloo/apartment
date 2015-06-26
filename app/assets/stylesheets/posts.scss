@@ -1,0 +1,48 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row.form {
+  margin-top: 10px;
+  padding: 2% 10%;
+  width:80%;
+  max-width: 100%;
+  float: none;
+  background-color: white;
+}
+
+.row.posts{
+  float:none;
+  max-width: 100%;
+  width:100%;
+  margin-top: 10px;
+  > .column > .post {
+    padding: 2% 10%;
+    background-color: white;
+    > h1 {
+      // font-size: 1.75rem;
+
+    }
+    > p {
+
+    }
+  }
+
+  >.side-nav {
+    position: absolute;
+    background-color: #E05A2B;
+    color:white;
+        >h1 {
+    float:left;
+    }
+    >ul {
+      margin-left: 0;
+
+      > li{
+        list-style:none;
+        width:100%;
+      }
+    }
+  }
+}
+

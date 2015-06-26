@@ -11,8 +11,11 @@
  * file per style scope.
  *= require "framework_and_overrides"
  *= require "index"
+ *= require "posts"
  *= require "navbar"
  *= require "features"
+ *= require "footer"
  *= require "globals"
  *= require_self
  */
+

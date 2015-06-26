@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="large 8 columns">
+    <h1> Edit Post </h1>
+
+    <%= simple_form_for :post, multipart: true, url: post_path(@post), method: :patch do |f| %>
+      <%= f.input :title, label: 'post title' %>
+      <%= f.text_area :content %>
+      <%= f.button :submit, :class => "button" %>
+    <% end %>
+  </div>
+</div>

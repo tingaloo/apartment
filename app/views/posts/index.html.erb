@@ -1,0 +1,56 @@
+<div class="row features">
+  <div class="large-8 medium-10 small-12 column feature-main">
+    <img alt="" src="http://p-fst2.pixstatic.com/555a2ea02a099a1ae3007f0c/_w.1490_h.932_s.centercrop_/James-and-Shanna-Midcentury-Modern-Bungalow-Durham-NC-8603.jpg">
+    <div class="feature-main-text"><h1>James & Shanna's Mid-Mod Bangalow</h1></div>
+  </div>
+  <div class="large-4 medium-4 small-6 column feature-sides">
+    <img alt="" src="http://p-fst1.pixstatic.com/55843547697ab014ff00c330/_w.348_h.262_s.centercrop_/8ECC2B83-217D-4916-906E-C48EB0819EB1.png">
+  </div>
+  <div class="large-4 medium-4 small-6 column feature-sides">
+    <img alt="" src="http://p-fst1.pixstatic.com/506b36c674c5b64b1d001467._w.348_h.262_s.centercrop_.jpg" class="hoverZoomLink">
+  </div>
+</div>
+
+<div class="row posts">
+  <div class="large-2 medium-3 small-0 column side-nav">
+    <ul>
+      <li>Renovation Diaries</li>
+      <li>Maker Talks</li>
+      <li>Tours</li>
+      <li>Rooms</li>
+      <li>Projects</li>
+      <li>Life at Home</li>
+      <li>Decor Styles</li>
+      <li>Before & After</li>
+      <li>Small Spaces</li>
+      <li>Budget Living</li>
+      <li>Video</li>
+      <li>Classifieds</li>
+      <li>Color Search</li>
+      <li>All Categories</li>
+    </ul>
+  </div>
+  <div class="large-10 medium-9 small-12 column">
+  <% @posts.each do |post| %>
+    <div class="row post">
+      <h1><%= post.title %></h1>
+      <p><%= post.content %></p>
+      <p>Written by <%= User.find(post.user_id).name %></p>
+      <%= link_to "Edit post", edit_post_path(post) %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<div class="row form">
+  <div class="large-12 large-centered medium-12 small-12 column">
+    <%= simple_form_for :post, multipart: true, url: posts_path do |f| %>
+      <%= f.input :title, placeholder: "Post Title Please" %>
+      <%= f.text_area :content, :cols => "30", :rows => "10",
+      placeholder: "This can either be a live-markdown preview box using Javascript to preview posts in real-time. This can also be an attachment for markdown files. I assume that there is a post-generator like Jekyll."  %>
+      <%= f.submit 'Submit', class: "button" %>
+    <% end %>
+  </div>
+</div>
+
+

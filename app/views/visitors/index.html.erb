@@ -10,3 +10,15 @@
     <img alt="" src="http://p-fst1.pixstatic.com/506b36c674c5b64b1d001467._w.348_h.262_s.centercrop_.jpg" class="hoverZoomLink">
   </div>
 </div>
+
+<div class="row form">
+  <div class="large-12 large-centered medium-10 small-12 column">
+    <%= simple_form_for :post, multipart: true, url: posts_path do |f| %>
+      <%= f.input :title, placeholder: "Post Title Please" %>
+      <%= f.text_area :content, :cols => "30", :rows => "10",
+      placeholder: "This can either be a live-markdown preview box or authors can attach their markdown files. I prefer the former."  %>
+      <%= f.submit 'Submit', class: "button" %>
+    <% end %>
+  </div>
+</div>
+
