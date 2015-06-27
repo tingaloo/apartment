@@ -1,5 +1,16 @@
-<div class="row form">
+<!-- <div class="row form">
   <div class="large-12 medium-12 small-12 large-centered" id="post-form" style="display:none;"></div>
+</div> -->
+
+<!-- <a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+ -->
+<div class="row">
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <div id="post-form"></div>
+
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
 </div>
 
 <div class="row features">
@@ -35,6 +46,9 @@
     </ul>
   </div>
   <div class="large-8 medium-7 small-12 column post-content">
+  <div class="row">
+    <h1><%= link_to "new post", new_post_path, "data-reveal-id" => "myModal", remote: true %></h1>
+  </div>
   <% @posts.each do |post| %>
     <div class="row post">
       <h1><%= post.title %></h1>
