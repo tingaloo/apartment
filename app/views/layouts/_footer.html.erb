@@ -1,11 +1,11 @@
 <div class="row footer">
-  <div class="large-5 medium-5 small-12 column">
+  <div class="large-6 medium-6 small-12 column">
     <h2>Latest from APARTMENT THERAPY</h2>
     <% Post.all.order(id: :desc).limit(3).each do |d| %>
       <%= d.title %>
     <% end %>
   </div>
-  <div class="large-5 medium-5 small-12 column">
+  <div class="large-6 medium-6 small-12 column">
     <h2>Latest from the Kitchen!</h2>
     <p>I AM pretty sure this is a multi-site so it is easy to pass information between Kitchn and Apartment. Otherwise I would use Nokogiri to fetch the information, though that is slow.</p>
   </div>

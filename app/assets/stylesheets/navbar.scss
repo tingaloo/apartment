@@ -1,3 +1,8 @@
+.logo-large > img{
+    width:30%;
+    padding: 3% 3%;
+}
+
 .top-bar {
   background: #E05A2B !important;
   > .title-area {
@@ -7,11 +12,6 @@
       display:block;
       background-color: white;
       height: 100px;
-      > .logo-small {
-
-
-
-      }
     }
 
     > .menu-icon > a{
@@ -61,12 +61,4 @@
 }
 
 
-.logo-large > img{
-    width:30%;
-    padding: 3% 3%;
-}
 
-
-.logo-small {
-
-}
