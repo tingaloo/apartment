@@ -37,8 +37,8 @@ class PostsController < ApplicationController
 
       if @post.save
         format.html {redirect_to @post, notice: "Post created"}
-        format.js {}
-        format.json {render json: @post.errors }
+        format.js { }
+        format.json {render json: @post, status: :created, location: @post }
       else
         format.html {render action: "new"}
         format.json {render json: @post.errors }

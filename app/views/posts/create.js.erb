@@ -1,2 +1,18 @@
-$('.post-content').append("<%= j (render 'form') %>");
 $('#post-form').slideUp(350);
+
+
+$(document).ajaxSuccess(function() {
+  console.log("rendering");
+  $("<%= j (render @post) %>").appendTo(".post-content");
+
+});
+// $(document.ready() {
+//   return $(".post-content").on("ajax:success", function(e, data, status, xhr) {
+//     console.log('ajax:success!');
+//     $('.post-content').append("<%= j (render 'form') %>");
+//     return $(".post-content").append(xhr.responseText);
+//   }).on("ajax:error", function(e, xhr, status, error) {
+//     return $(".post-content").append("<p>ERROR</p>");
+//   });
+// });
+
