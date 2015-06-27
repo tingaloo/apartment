@@ -1,3 +1,7 @@
+<div class="row form">
+  <div class="large-12 medium-12 small-12 large-centered" id="post-form" style="display:none;"></div>
+</div>
+
 <div class="row features">
   <div class="large-8 medium-10 small-12 column feature-main">
     <img alt="" src="http://p-fst2.pixstatic.com/555a2ea02a099a1ae3007f0c/_w.1490_h.932_s.centercrop_/James-and-Shanna-Midcentury-Modern-Bungalow-Durham-NC-8603.jpg">
@@ -42,7 +46,7 @@
       <div class="row author">
         <div class="large-4 medium-4 small-12 column">
         <%= image_tag User.find(post.user_id).avatar.url(:thumb),
-          class: 'avatar' %>
+          :class => 'avatar' %>
         </div>
         <div class="large-8 medium-8 small-12 column">
           <%= User.find(post.user_id).name %><br>
@@ -59,6 +63,8 @@
   </div>
 </div>
 
+
+<!--
 <div class="row form">
   <div class="large-12 large-centered medium-12 small-12 column">
     <%= simple_form_for :post, multipart: true, url: posts_path do |f| %>
@@ -70,6 +76,6 @@
     <% end %>
   </div>
 </div>
-
+ -->
 
 

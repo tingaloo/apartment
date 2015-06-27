@@ -1,8 +1,15 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :about]
+  # respond_to :html, :js
+  # before_action :all_posts, only: [:index, :create, :update]
 
   def index
     @posts = Post.all
+
+  #   respond_to do |format|
+  #   format.html
+  #   format.json
+  # end
   end
 
   def show
@@ -11,6 +18,12 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
+
+    # respond_to do |format|
+    #   # format.html { redirect_to @post, notice: "format.html"}
+    #   format.html { redirect_to root_path }
+    #   format.js
+    # end
   end
 
   def edit
@@ -20,10 +33,16 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
 
-    if @post.save
-      redirect_to root_path, notice: "Post Created"
-    else
-      redirect_to root_path, notice: "Post not saved"
+    respond_to do |format|
+
+      if @post.save
+        format.html {redirect_to @post, notice: "Post created"}
+        format.js {}
+        format.json {render json: @post.errors }
+      else
+        format.html {render action: "new"}
+        format.json {render json: @post.errors }
+      end
     end
   end
 
@@ -45,6 +64,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  # def all_posts
+  #   @posts = Post.all
+  # end
 
   def post_params
     params.require(:post).permit(:title, :content, :categories)
