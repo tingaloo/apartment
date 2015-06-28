@@ -1,16 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :about]
-  # respond_to :html, :js
-  # before_action :all_posts, only: [:index, :create, :update]
-
-  def index
-    @posts = Post.all
-
-  #   respond_to do |format|
-  #   format.html
-  #   format.json
-  # end
-  end
+  respond_to :html, :js
+  before_action :render_posts, only: [:index, :create, :update, :destroy]
 
   def show
     @post = Post.find(params[:id])
@@ -18,12 +9,6 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
-
-    # respond_to do |format|
-    #   # format.html { redirect_to @post, notice: "format.html"}
-    #   format.html { redirect_to root_path }
-    #   format.js
-    # end
   end
 
   def edit
@@ -49,25 +34,33 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.update(post_params)
-      redirect_to root_path
-    else
-      render 'edit'
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html {redirect_to @post, notice: "Post created"}
+          format.js { }
+          format.json {render json: @post }
+      else
+        format.html {render action: "edit"}
+          format.json {render json: @post.errors }
+      end
     end
+
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-
-    redirect_to posts_path
   end
 
   private
 
-  # def all_posts
-  #   @posts = Post.all
-  # end
+  def render_posts
+    @posts = Post.paginate(page: params[:page], per_page: 2).order(created_at: :desc)
+  end
+
+  def set_posts
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :content, :categories)

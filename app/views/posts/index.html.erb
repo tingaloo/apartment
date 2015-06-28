@@ -25,6 +25,11 @@
     <img alt="" src="http://p-fst1.pixstatic.com/506b36c674c5b64b1d001467._w.348_h.262_s.centercrop_.jpg" class="hoverZoomLink">
   </div>
 </div>
+<div class="row">
+    <div class="large-12 medium-12 small-12 column">
+      <h1><%= link_to "new post", new_post_path, "data-reveal-id" => "myModal", remote: true %></h1>
+    </div>
+</div>
 
 <div class="row posts">
   <div class="large-2 medium-3 small-12 column side-nav">
@@ -46,50 +51,15 @@
     </ul>
   </div>
   <div class="large-8 medium-7 small-12 column post-content">
-  <div class="row">
-    <h1><%= link_to "new post", new_post_path, "data-reveal-id" => "myModal", remote: true %></h1>
-  </div>
-  <% @posts.each do |post| %>
-    <div class="row post">
-      <h1><%= post.title %></h1>
-      <p><%= post.content.html_safe %></p>
 
-      <%= link_to "Edit", edit_post_path(post) %>
-      <%= link_to "Remove", post_path(post), :confirm => 'Works!', :method => :delete %>
 
-      <div class="row author">
-        <div class="large-4 medium-4 small-12 column">
-        <%= image_tag User.find(post.user_id).avatar.url(:thumb),
-          :class => 'avatar' %>
-        </div>
-        <div class="large-8 medium-8 small-12 column">
-          <%= User.find(post.user_id).name %><br>
-          <%= User.find(post.user_id).description %>
-        </div>
+    <%= render @posts %>
 
-      </div>
-    </div>
-  <% end %>
   </div>
 
   <div class="large-2 medium-2 small-0 column side-ad">
     Place Ad here
   </div>
 </div>
-
-
-<!--
-<div class="row form">
-  <div class="large-12 large-centered medium-12 small-12 column">
-    <%= simple_form_for :post, multipart: true, url: posts_path do |f| %>
-      <%= f.input :title, placeholder: "Post Title Please" %>
-      <%= f.text_area :content, :cols => "30", :rows => "20",
-      id: "some-textarea", class: "wysihtml5",
-      placeholder: "WYSIWYG HTML editor, allows embedding of images to preview post content."  %>
-      <%= f.submit 'Submit', class: "button" %>
-    <% end %>
-  </div>
-</div>
- -->
 
 

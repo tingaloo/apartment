@@ -1,6 +1,14 @@
 // $('#post-form').slideUp(350);
+// $("<%= j (render @post) %>").prependTo(".post-content");
+//piece of code changes all currently shown posts to newest information.
+//reverts on page refresh.
+$('.post-content').html("<%= j (render @posts) %>");
 
+$('a.close-reveal-modal').trigger('click');
 $("#post-form-submit").on("click",function() {
-  $('a.close-reveal-modal').trigger('click');
-  $("<%= j (render @post) %>").appendTo(".post-content");
+
 });
+
+//change this on ajax success submit instead of onclick.
+// on click needs 2 clicks
+// and creates two of the same object.

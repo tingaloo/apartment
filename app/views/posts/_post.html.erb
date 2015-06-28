@@ -1,20 +1,20 @@
 
 <div class="row post">
-      <h1><%= @post.title %></h1>
-      <p><%= @post.content.html_safe %></p>
+  <h1><%= post.title %></h1>
+    <p><%= post.content.html_safe %></p>
 
-      <%= link_to "Edit", edit_post_path(@post) %>
-      <%= link_to "Remove", post_path(@post), :confirm => 'Works!', :method => :delete %>
+    <%= link_to "Edit", edit_post_path(post), "data-reveal-id" => "myModal", remote: true %>
+    <%= link_to "Remove", post_path(post), data: {
+      confirm: 'Are you sure?'}, method: :delete, remote: true %>
 
-      <div class="row author">
-        <div class="large-4 medium-4 small-12 column">
-        <%= image_tag User.find(@post.user_id).avatar.url(:thumb),
-          :class => 'avatar' %>
-        </div>
-        <div class="large-8 medium-8 small-12 column">
-          <%= User.find(@post.user_id).name %><br>
-          <%= User.find(@post.user_id).description %>
-        </div>
-
-      </div>
+  <div class="row author">
+    <div class="large-4 medium-4 small-12 column">
+    <%= image_tag User.find(post.user_id).avatar.url(:thumb),
+      :class => 'avatar' %>
     </div>
+    <div class="large-8 medium-8 small-12 column">
+      <%= User.find(post.user_id).name %><br>
+      <%= User.find(post.user_id).description %>
+    </div>
+  </div>
+</div>
