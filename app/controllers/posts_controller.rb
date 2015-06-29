@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   private
 
   def render_posts
-    @posts = Post.paginate(page: params[:page], per_page: 2).order(created_at: :desc)
+    @posts = Post.paginate(page: params[:page], per_page: 4).order(created_at: :desc)
   end
 
   def set_posts
