@@ -56,6 +56,10 @@ class PostsController < ApplicationController
 
   def render_posts
     @posts = Post.paginate(page: params[:page], per_page: 4).order(created_at: :desc)
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def set_posts

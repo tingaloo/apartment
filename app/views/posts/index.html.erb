@@ -52,11 +52,12 @@
     </ul>
   </div>
   <div class="large-8 medium-7 small-12 column post-content">
-
-
     <%= render @posts %>
-
+    <div class="infinite-scrolling">
+    <%= will_paginate @posts %>
   </div>
+  </div>
+
 
   <div class="large-2 medium-2 small-0 column side-ad">
     Place Ad here
