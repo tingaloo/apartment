@@ -2,19 +2,26 @@
 <div class="row post">
   <h1><%= post.title %></h1>
     <p><%= post.content.html_safe %></p>
-
-    <%= link_to "Edit", edit_post_path(post), "data-reveal-id" => "myModal", remote: true %>
-    <%= link_to "Remove", post_path(post), data: {
-      confirm: 'Are you sure?'}, method: :delete, remote: true %>
-
-  <div class="row author">
-    <div class="large-4 medium-4 small-12 column">
-    <%= image_tag User.find(post.user_id).avatar.url(:thumb),
-      :class => 'avatar' %>
-    </div>
-    <div class="large-8 medium-8 small-12 column">
-      <%= User.find(post.user_id).name %><br>
-      <%= User.find(post.user_id).description %>
-    </div>
-  </div>
 </div>
+  <div class="row author">
+    <% if post.user.avatar_url? %>
+      <div class="large-4 medium-4 small-12 column">
+<!--           <%= image_tag post.user.avatar.url(:thumb),
+            :class => 'avatar' %> -->
+          <%= image_tag post.user.avatar_url, class: 'avatar' %>
+      </div>
+      <div class="large-8 medium-8 small-12 column">
+        <h3 class="text-left"><%= User.find(post.user_id).name %></h3>
+        <p class="text-left"><%= User.find(post.user_id).description %></p>
+      </div>
+
+    <% else %>
+      <div class="large-12 medium-12 small-12 column">
+          <h3 class="text-left">Written by <%= post.user.name ||= post.user.email %></h3>
+          <p class="text-left"> <%= post.user.description %> </p>
+      </div>
+
+    <% end %>
+  </div>
+
+
