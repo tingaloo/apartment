@@ -28,7 +28,11 @@
 </div>
 <div class="row">
     <div class="large-12 medium-12 small-12 column">
+      <% if user_signed_in? %>
       <h1><%= link_to "new post", new_post_path, "data-reveal-id" => "myModal", remote: true %></h1>
+      <% else %>
+      <h1><%= link_to "Please sign up or log in to post", new_post_path %></h1>
+      <% end %>
     </div>
 </div>
 
@@ -60,7 +64,7 @@
 
 
   <div class="large-2 medium-2 small-0 column side-ad">
-    Place Ad here
+
   </div>
 </div>
 
