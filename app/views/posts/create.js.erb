@@ -2,7 +2,7 @@
 // $("<%= j (render @post) %>").prependTo(".post-content");
 //piece of code changes all currently shown posts to newest information.
 //reverts on page refresh.
-$('.post-content').html("<%= j (render @posts) %>");
+$('.post-list').html("<%= j (render @posts) %>");
 
 $('a.close-reveal-modal').trigger('click');
 $("#post-form-submit").on("click",function() {

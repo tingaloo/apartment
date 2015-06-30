@@ -10,24 +10,29 @@
   float: none;
   background-color: white;
 }
+.post-list {
+text-align:left;
+padding: 2% 2%;
+}
 
 .row.posts{
   float:none;
-  max-width: 100%;
   width:100%;
   margin-top: 10px;
+  max-width: 100%;
 
-  > .column > .post {
-    text-align: left;
-    padding: 2% 10%;
-    background-color: white;
+    > .column > .post {
+      text-align: left;
+      padding: 2% 10%;
+      background-color: white;
 
-    border-left: 1px solid;
-    border-right: 1px solid;
-    border-color: #DDD;
+      border-left: 1px solid;
+      border-right: 1px solid;
+      border-color: #DDD;
+    }
   }
 
-  >.side-nav {
+  .side-nav {
     // border-top: 1px solid;
     margin-top: 5%;
     padding: 2% 2%;
@@ -64,7 +69,7 @@
       }
     }
   }
-}
+
 
 .row.author {
      border-bottom: 1px solid;

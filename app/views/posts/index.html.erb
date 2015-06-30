@@ -26,15 +26,6 @@
     <img alt="" src="http://p-fst1.pixstatic.com/506b36c674c5b64b1d001467._w.348_h.262_s.centercrop_.jpg" class="hoverZoomLink">
   </div>
 </div>
-<div class="row">
-    <div class="large-12 medium-12 small-12 column">
-      <% if user_signed_in? %>
-      <h1><%= link_to "new post", new_post_path, "data-reveal-id" => "myModal", remote: true %></h1>
-      <% else %>
-      <h1><%= link_to "Please sign up or log in to post", new_post_path %></h1>
-      <% end %>
-    </div>
-</div>
 
 <div class="row posts">
   <div class="large-2 medium-3 small-12 column side-nav">
@@ -55,10 +46,34 @@
       <li>All Categories</li>
     </ul>
   </div>
+
   <div class="large-8 medium-7 small-12 column post-content">
+    <div class="row">
+      <div class="large-12 medium-12 small-12 column">
+        <% if user_signed_in? %>
+        <h1><%= link_to "new post", new_post_path, "data-reveal-id" => "myModal", remote: true %></h1>
+        <% else %>
+        <h1><%= link_to "Please sign up or log in to post", new_user_session_path %></h1>
+        <% end %>
+      </div>
+    </div>
+    <div class="post-list">
       <%= render @posts %>
     <div class="infinite-scrolling">
       <%= will_paginate @posts %>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="row">
+    <div class="large-12 medium-12 small-12 column">
+      <% if user_signed_in? %>
+      <h1><%= link_to "new post", new_post_path, "data-reveal-id" => "myModal", remote: true %></h1>
+      <% else %>
+      <h1><%= link_to "Please sign up or log in to post", new_user_session_path %></h1>
+      <% end %>
+    </div>
+</div>
     </div>
   </div>
 
