@@ -8,11 +8,11 @@
 </div>
 
 <div class="row author">
-    <% if post.user.avatar_url? %>
+    <% if post.user.avatar? %>
       <div class="large-4 medium-4 small-12 column">
-<!--           <%= image_tag post.user.avatar.url(:thumb),
-            :class => 'avatar' %> -->
-          <%= image_tag post.user.avatar_url, class: 'avatar' %>
+      <%= image_tag post.user.avatar.url(:thumb),
+            :class => 'avatar' %>
+            <!--           <%= image_tag post.user.avatar_url, class: 'avatar' %> -->
       </div>
       <div class="large-8 medium-8 small-12 column">
         <h3 class="text-left"><%= User.find(post.user_id).name %></h3>
