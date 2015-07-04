@@ -1,27 +1,10 @@
-<!-- <div class="row form">
-  <div class="large-12 large-centered medium-12 small-12 column">
-    <%= simple_form_for @post, remote: true do |f| %>
-      <%= f.input :title, placeholder: "Post Title Please" %>
-      <%= f.text_area :content, :cols => "30", :rows => "20",
-      id: "some-textarea", class: "wysihtml5",
-      placeholder: "WYSIWYG HTML editor, allows embedding of images to preview post content."  %>
-      <%= f.submit 'Submit Post', class: "button", id: "post-form-submit"%>
-    <% end %>
-  </div>
-</div> -->
-
 <%= simple_form_for @post, remote: true do |f| -%>
 
-  <%= f.input :title, placeholder: "Post Title Please" %>
+  <%= f.input :title, placeholder: "Post Title Please", label: false %>
 
-  <%= f.cktext_area :content, :value => 'WYSIWYG HTML editor, allows embedding of images to preview post content.'
+  <%= f.input :content, :as => :ckeditor, :value => 'WYSIWYG HTML editor, allows embedding of images to preview post content.'
+
+
     %>
   <%= f.submit 'Submit Post', class: "button", id: "post-form-submit"%>
 <% end -%>
-
-
-<script type="text/javascript">
-        $(document).ready(function(){
-          $('.wysihtml5').wysihtml5();
-        })
-      </script>

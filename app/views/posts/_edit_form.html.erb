@@ -2,18 +2,15 @@
   <div class="large 8 columns">
     <h1> Edit Post </h1>
 
-    <%= simple_form_for @post, method: :patch, remote: true do |f| %>
-      <%= f.input :title, label: 'post title' %>
-      <%= f.text_area :content, :cols => "30", :rows => "20",
-      id: "some-textarea", class: "wysihtml5",
-      placeholder: "WYSIWYG HTML editor, allows embedding of images to preview post content. "  %>
-      <%= f.submit 'Submit', class: "button", id: "post-edit-form-submit" %>
-    <% end %>
+    <%= simple_form_for @post, method: :patch, remote: true do |f| -%>
+
+  <%= f.input :title, placeholder: "Post Title Please", label: false %>
+
+  <%= f.input :content, :as => :ckeditor, :value => 'WYSIWYG HTML editor, allows embedding of images to preview post content.'
+
+
+    %>
+  <%= f.submit 'Submit Post', class: "button", id: "post-edit-form-submit"%>
+<% end -%>
   </div>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.wysihtml5').wysihtml5();
-        })
-      </script>
