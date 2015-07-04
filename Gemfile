@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'foundation-wysihtml5-rails'
 gem "paperclip", "~> 4.2"
 gem 'will_paginate', '~> 3.0.7'
+gem 'ckeditor'
 
 group :development do
   gem 'better_errors'

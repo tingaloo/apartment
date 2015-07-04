@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require foundation-wysihtml5
+//= require ckeditor/init
 //= require_tree .
 $(function() {
   $(document).foundation();
