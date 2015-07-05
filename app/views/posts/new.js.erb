@@ -1,2 +1,15 @@
+
 $('#post-form').html("<%= j (render 'form') %>");
-// $('#post-form').slideDown(350);
+
+if(CKEDITOR.instances["post_content"]) {
+    delete CKEDITOR.instances["post_content"];
+    $('.post_content').ckeditor();
+}
+
+// for(name in CKEDITOR.instances)
+//   {
+//     console.log(name);
+//     CKEDITOR.instances[name].destroy();
+//     alert('hi');
+//     console.log(name);
+//   }

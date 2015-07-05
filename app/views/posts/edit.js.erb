@@ -1,1 +1,6 @@
 $('#post-form').html("<%= j (render 'edit_form') %>");
+
+if(CKEDITOR.instances["post_content"]) {
+    delete CKEDITOR.instances["post_content"];
+    $('.post_content').ckeditor();
+}

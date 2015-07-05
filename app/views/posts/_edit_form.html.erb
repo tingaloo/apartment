@@ -6,10 +6,10 @@
 
   <%= f.input :title, placeholder: "Post Title Please", label: false %>
 
-  <%= f.input :content, :as => :ckeditor, :value => 'WYSIWYG HTML editor, allows embedding of images to preview post content.'
-
-
+  <%= f.input :content, :as => :ckeditor, :value => 'WYSIWYG HTML editor, allows embedding of images to preview post content.',
+  label: false
     %>
+
   <%= f.submit 'Submit Post', class: "button", id: "post-edit-form-submit"%>
 <% end -%>
   </div>

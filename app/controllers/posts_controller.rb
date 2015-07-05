@@ -3,6 +3,10 @@ class PostsController < ApplicationController
   respond_to :html, :js
   before_action :render_posts, only: [:index, :create, :update, :destroy]
 
+  def index
+    @post = current_user.posts.build
+  end
+
   def show
     @post = Post.find(params[:id])
   end
