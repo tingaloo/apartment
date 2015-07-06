@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   has_many :posts
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :description, :avatar)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :description, :avatar, :avatar_url)
   end
 end
