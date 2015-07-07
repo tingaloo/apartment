@@ -1,2 +1,59 @@
-<%= @post.title %>
-<%= @post.content %>
+<div class="row post">
+  <div class="large-12 medium-12 small-12 column">
+    <div class="post-title">
+    <h1><%= @post.title %></h1>
+    </div>
+    <div class="post-description">
+      <p><%= @post.content.html_safe %></p>
+    </div>
+  </div>
+
+  <div class="row author">
+    <% if @post.user.avatar_url? %>
+      <div class="large-4 medium-4 small-12 column">
+
+        <%= image_tag @post.user.avatar_url, class: 'avatar' %>
+      </div>
+      <div class="large-8 medium-8 small-12 column">
+        <h3 class="text-left">
+        <%= User.find(@post.user_id).name %>
+        </h3>
+        <p class="text-left">
+        <%= User.find(@post.user_id).description %>
+        </p>
+      </div>
+
+    <% else %>
+      <div class="large-12 medium-12 small-12 column">
+          <h3 class="text-left">Written by <%= @post.user.name ||= @post.user.email %></h3>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="large-12 medium-12 column">
+    <% if @post.comments.any? %>
+    <h2><%= @post.comments.count %> Comments</h2>
+      <% @post.comments.each do |c| %>
+      <div class="large-12 column">
+      <%= User.find(c.user_id).name %><br>
+        <%= c.body %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+  <div class="large-12 medium-12 column">
+    <%= simple_form_for :comment, url: post_comments_path(@post) do |f| %>
+
+      <%= f.input :body, :as => :text, :input_html => {:maxlength => 40,:rows => 10}, label: false %>
+
+      <%= f.submit 'Submit Comment', class: "button"%>
+    <% end %>
+  </div>
+</div>
+
+
+
+

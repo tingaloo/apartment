@@ -1,10 +1,25 @@
 
+
 <div class="row post">
-  <h1><%= post.title %></h1>
-    <p><%= post.content.html_safe %></p>
-    <%= link_to "Edit", edit_post_path(post), "data-reveal-id" => "myModal", remote: true %>
-    <%= link_to "Remove", post_path(post), data: {
-      confirm: 'Are you sure?'}, method: :delete, remote: true %>
+  <div class="large-12 medium-12 small-12 column">
+
+    <div class="post-title">
+    <h1><%= link_to post.title, post_path(post) %></h1>
+    </div>
+
+
+
+    <div class="post-picture">
+      <%= post.content[/<img .*?>/].to_s.html_safe %>
+    </div>
+
+    <div class="post-description">
+      <%= post.content[/<p .*?p>/].to_s.html_safe %>
+    </div>
+
+
+
+  </div>
 </div>
 
 <div class="row author">
@@ -16,16 +31,31 @@
       </div>
       <div class="large-8 medium-8 small-12 column">
         <h3 class="text-left"><%= User.find(post.user_id).name %></h3>
-        <p class="text-left"><%= User.find(post.user_id).description %></p>
+        <!-- <p class="text-left"><%= User.find(post.user_id).description %></p> -->
       </div>
 
     <% else %>
       <div class="large-12 medium-12 small-12 column">
           <h3 class="text-left">Written by <%= post.user.name ||= post.user.email %></h3>
-          <p class="text-left"> <%= post.user.description %> </p>
-      </div>
+<!--           <p class="text-left"> <%= post.user.description %> </p>
+ -->      </div>
     <% end %>
 
   </div>
+  <div class="row buttons">
+    <div class="large-6 medium-6 small-6 column">
+    <%= link_to "Edit", edit_post_path(post), "data-reveal-id" => "myModal", remote: true %>
+    <%= link_to "Remove", post_path(post), data: {
+      confirm: 'Are you sure?'}, method: :delete, remote: true %>
+    </div>
+    <div class="large-6 medium-6 small-6 column">
+      <%= link_to "#{post.comments.count} comments", post %>
+
+    </div>
+  </div>
+
+
+
+
 
 

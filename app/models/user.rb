@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts
+  has_many :comments
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :description, :avatar, :avatar_url)

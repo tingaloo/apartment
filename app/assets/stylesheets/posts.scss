@@ -15,6 +15,17 @@ text-align:left;
 padding: 2% 10%;
 }
 
+.post-picture {
+
+    > img {
+
+      // position: absolute;
+      // height: 35% !important;
+      width:80% !important;
+      height:400px !important;
+    }
+  }
+
 .post-header {
   padding: 0 10%;
   // border-bottom: solid 2px;
@@ -31,16 +42,49 @@ padding: 2% 10%;
   width:100%;
   margin-top: 10px;
   max-width: 100%;
+}
 
-    > .column > .post {
-      text-align: left;
-      padding: 2% 10%;
-      background-color: white;
 
-      border-left: 1px solid;
-      border-right: 1px solid;
-      border-color: #DDD;
+// post partial
+.post > .column {
+  padding: 0% 0%;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: #DDD;
+  >.post-title{
+    padding: 5% 2%;
+    color:white;
+
+    > h1 {
+      color:black;
+      > a {
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
+  }
+  >.post-description {
+    padding: 4% 5%;
+    > p {
+    text-align: left;
+
+
+    }
+  }
+
+  // > .post-picture {
+  //   position: absolute;
+  //   // width: 100%;
+  //   opacity: .35;
+  //   > img {
+
+  //     // position: absolute;
+  //     height: 400px !important;
+  //   }
+  // }
+
 }
 
 .side-nav {
@@ -88,8 +132,7 @@ padding: 2% 10%;
 
 
 .row.author {
-     border-bottom: 1px solid;
-     border-color: #DDD;
+
      padding: 2% 5%;
       > .column > .avatar {
         border-radius: 50%;
@@ -98,5 +141,14 @@ padding: 2% 10%;
         height: 100px;
         width:100px;
       }
+}
+
+.row.buttons {
+  margin-bottom: 5%;
+  border-bottom: 1px solid;
+     border-color: #DDD;
+  >.column {
+    padding: 3% 2%;
+  }
 }
 
