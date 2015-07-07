@@ -1,7 +1,9 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.post img {
+  margin: auto;
+}
 .row.form {
   margin-top: 10px;
   padding: 2% 0%;
@@ -26,7 +28,6 @@ padding: 2% 10%;
 
 .post-header {
   padding: 0 10%;
-  // border-bottom: solid 2px;
   width:100%;
   text-align: left;
   > h3{
@@ -50,7 +51,7 @@ padding: 2% 10%;
   border-right: 1px solid;
   border-color: #DDD;
   >.post-title{
-    padding: 5% 2%;
+    padding: 2% 2%;
     color:white;
 
     > h1 {
@@ -64,7 +65,7 @@ padding: 2% 10%;
     }
   }
   >.post-description {
-    padding: 4% 5%;
+    padding: 2% 5%;
     > p {
     text-align: left;
 
@@ -148,5 +149,25 @@ padding: 2% 10%;
   >.column {
     padding: 3% 2%;
   }
+}
+
+.row.comments  {
+  > .column {
+    padding: 2% 5%;
+    > h2 {
+      border-bottom: solid 2px;
+      width:80%;
+
+    }
+    >.comment {
+      > h3 {
+        padding-top: 2%;
+        color: #DD4814;
+      }
+    }
+
+
+  }
+
 }
 

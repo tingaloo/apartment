@@ -30,16 +30,20 @@
     <% end %>
   </div>
 
-  <div class="large-12 medium-12 column">
-    <% if @post.comments.any? %>
-    <h2><%= @post.comments.count %> Comments</h2>
-      <% @post.comments.each do |c| %>
-      <div class="large-12 column">
-      <%= User.find(c.user_id).name %><br>
-        <%= c.body %>
-      </div>
+  <div class="row comments">
+    <div class="large-12 medium-12 column">
+      <% if @post.comments.any? %>
+        <h2 class="text-left"><%= @post.comments.count %> Comments</h2>
+        <% @post.comments.each do |c| %>
+        <div class="comment">
+        <h3 class="text-left"><%= User.find(c.user_id).name %></h3>
+        <p class="text-left"><%= c.body %></p>
+        </div>
+        <% end %>
+      <% else %>
+        <h2 class="text-left"> Bummer, there's no comments.</h2>
       <% end %>
-    <% end %>
+    </div>
   </div>
 
 

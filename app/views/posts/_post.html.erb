@@ -43,11 +43,15 @@
 
   </div>
   <div class="row buttons">
+    <% if current_user == post.user %>
     <div class="large-6 medium-6 small-6 column">
+
     <%= link_to "Edit", edit_post_path(post), "data-reveal-id" => "myModal", remote: true %>
     <%= link_to "Remove", post_path(post), data: {
       confirm: 'Are you sure?'}, method: :delete, remote: true %>
+
     </div>
+    <% end %>
     <div class="large-6 medium-6 small-6 column">
       <%= link_to "#{post.comments.count} comments", post %>
 
