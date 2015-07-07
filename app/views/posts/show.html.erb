@@ -9,10 +9,10 @@
   </div>
 
   <div class="row author">
-    <% if @post.user.profile_path? %>
+    <% if @post.user.path? %>
       <div class="large-4 medium-4 small-12 column">
 
-        <%= image_tag @post.user.profile_path, class: 'avatar' %>
+        <%= image_tag @post.user.path, class: 'avatar' %>
       </div>
       <div class="large-8 medium-8 small-12 column">
         <h3 class="text-left">

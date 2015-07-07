@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :description, :avatar, :avatar_url,
-      :profile_path)
+      :path)
   end
 end
